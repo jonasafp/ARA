@@ -16,15 +16,22 @@ body {
   line-height: 1.6;
 }
 
+/* Compensa o header fixo */
+.main {
+  border-top: 0.4px solid #1ebefd;
+  padding-top: 100px;
+}
+
 /* ==========================
    HEADER
 ========================== */
 .header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  width: 100%;
   z-index: 100;
   display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: space-between;
   padding: 16px 48px;
@@ -67,10 +74,6 @@ body {
 /* ==========================
    HERO SECTION
 ========================== */
-.main {
-  border-top: 0.4px solid #1ebefd;
-}
-
 .main_principal {
   display: flex;
   flex-direction: row;
@@ -108,11 +111,11 @@ body {
 /* BOTÃO PRINCIPAL */
 .main_button {
   background: linear-gradient(135deg, #00aef3, #006494);
-  padding: 16px 32px;
+  padding: 14px 28px;
   border: none;
   border-radius: 30px;
   font-weight: 600;
-  font-size: 20px;
+  font-size: 18px;
   color: #fff;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -151,20 +154,81 @@ body {
 
 .card {
   background: rgba(255, 255, 255, 0.05);
-  padding: 24px;
+  padding: 28px;
   border-radius: 16px;
   transition: transform 0.3s, box-shadow 0.3s;
+  text-align: center;
 }
 
 .card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 8px 20px rgba(0, 174, 243, 0.2);
+  box-shadow: 0 8px 20px rgba(0, 174, 243, 0.25);
 }
 
 .card h4 {
-  font-size: 20px;
+  font-size: 22px;
   margin-bottom: 12px;
   color: #00aef3;
+  font-weight: 600;
+}
+
+.card p {
+  font-size: 16px;
+  color: #e2e8f0;
+}
+
+/* ==========================
+   PORTFÓLIO
+========================== */
+.portfolio {
+  max-width: 1200px;
+  margin: 80px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.portfolio_texto {
+  margin-bottom: 40px;
+  font-size: 18px;
+  color: #cce6f9;
+}
+
+.portfolio_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.portfolio_item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.portfolio_item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.portfolio_item:hover img {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 174, 243, 0.3);
+}
+
+/* Marca d’água */
+.portfolio_item::after {
+  content: "ARA Fotografia";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-20deg);
+  font-size: 26px;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.12);
+  pointer-events: none;
 }
 
 /* ==========================
@@ -180,6 +244,13 @@ body {
   margin: 16px 0 32px 0;
   font-size: 18px;
   color: #cce6f9;
+}
+
+.contatos_links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
 /* ==========================

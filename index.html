@@ -6,61 +6,103 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Fotografia Automotiva Profissional">
   <title>ARA Fotografia</title>
+
+  <!-- CSS -->
   <link rel="stylesheet" type="text/css" href="style.css">
+
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Righteous&display=swap"
     rel="stylesheet">
+
+  <!-- AOS (Animate on Scroll) -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
-<body>
+<!-- Bloqueio de download fácil -->
+<body oncontextmenu="return false;" ondragstart="return false;" onselectstart="return false;">
+
   <!-- HEADER -->
   <header class="header">
     <img class="header_img" src="assets/logo.jpg" alt="Logo ARA">
     <nav class="nav">
       <a href="#sobre" class="iten_nav">Sobre</a>
       <a href="#servicos" class="iten_nav">Serviços</a>
+      <a href="#portfolio" class="iten_nav">Portfólio</a>
       <a href="#contatos" class="iten_nav">Contatos</a>
     </nav>
   </header>
 
   <!-- MAIN -->
   <main class="main">
-    <!-- Hero Section -->
+    <!-- HERO -->
     <section class="main_principal" id="sobre">
-      <div class="main_principal_escrito">
+      <div class="main_principal_escrito" data-aos="fade-right">
         <h1 class="main_principal_titulo">ARA</h1>
         <h2 class="main_principal_subtitulo">Fotografia Automotiva</h2>
         <a href="#contatos"><button class="main_button">Orçamentos</button></a>
       </div>
-      <img class="main_img" src="assets/figure_main.png" alt="Fotógrafo ilustrado">
+      <img class="main_img" src="assets/figure_main.png" alt="Fotógrafo ilustrado" data-aos="fade-left">
     </section>
 
-    <!-- Serviços -->
+    <!-- SERVIÇOS -->
     <section class="main_secundaria" id="servicos">
-      <h3 class="main_secundaria_titulo">O que oferecemos</h3>
+      <h3 class="main_secundaria_titulo" data-aos="fade-up">O que oferecemos</h3>
       <div class="servicos_grid">
-        <div class="card">
+        <div class="card" data-aos="fade-up" data-aos-delay="200">
           <h4>Ensaio Automotivo</h4>
           <p>Fotografias profissionais do seu carro em estúdio ou ao ar livre.</p>
         </div>
-        <div class="card">
+        <div class="card" data-aos="fade-up" data-aos-delay="300">
           <h4>Cobertura de Eventos</h4>
           <p>Registro completo de encontros, exposições e campeonatos automotivos.</p>
         </div>
-        <div class="card">
+        <div class="card" data-aos="fade-up" data-aos-delay="400">
           <h4>Fotografia para Venda</h4>
           <p>Fotos detalhadas para valorizar seu veículo em anúncios.</p>
         </div>
       </div>
     </section>
 
-    <!-- Contatos -->
+    <!-- PORTFÓLIO -->
+    <section class="portfolio" id="portfolio">
+      <h3 class="main_secundaria_titulo" data-aos="fade-up">Portfólio</h3>
+      <p class="portfolio_texto" data-aos="fade-up" data-aos-delay="100">
+        Confira alguns dos nossos ensaios e eventos automotivos:
+      </p>
+
+      <div class="portfolio_grid">
+        <div class="portfolio_item" data-aos="zoom-in" data-aos-delay="200">
+          <img src="portifolio/1.jpg" alt="Foto automotiva 1">
+        </div>
+        <div class="portfolio_item" data-aos="zoom-in" data-aos-delay="300">
+          <img src="portifolio/2.jpg" alt="Foto automotiva 2">
+        </div>
+        <div class="portfolio_item" data-aos="zoom-in" data-aos-delay="400">
+          <img src="portifolio/3.jpg" alt="Evento automotivo">
+        </div>
+        <div class="portfolio_item" data-aos="zoom-in" data-aos-delay="500">
+          <img src="portifolio/4.jpg" alt="Foto automotiva 3">
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTATOS -->
     <section class="contatos" id="contatos">
-      <h3 class="main_secundaria_titulo">Fale Conosco</h3>
-      <p class="contatos_texto">Entre em contato pelo WhatsApp para solicitar um orçamento rápido:</p>
-      <a href="https://wa.me/5500000000000" target="_blank" class="main_button">WhatsApp</a>
+      <h3 class="main_secundaria_titulo" data-aos="fade-up">Fale Conosco</h3>
+      <p class="contatos_texto" data-aos="fade-up" data-aos-delay="100">
+        Entre em contato pelo WhatsApp ou siga nosso Instagram para conhecer mais:
+      </p>
+      <div class="contatos_links">
+        <a href="https://wa.me/5500000000000" target="_blank" class="main_button" data-aos="zoom-in">
+          WhatsApp
+        </a>
+        <a href="https://www.instagram.com/_ara.team?igsh=eXd1ZTdiNGJhOG12" target="_blank" class="main_button" data-aos="zoom-in" data-aos-delay="200">
+          Instagram
+        </a>
+      </div>
     </section>
   </main>
 
@@ -68,6 +110,15 @@
   <footer class="footer">
     <p>© 2025 ARA Fotografia Automotiva - Todos os direitos reservados</p>
   </footer>
+
+  <!-- JS AOS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+  </script>
 </body>
 
 </html>
