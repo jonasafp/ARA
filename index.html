@@ -21,13 +21,15 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
-<!-- Bloqueio de download fácil -->
 <body oncontextmenu="return false;" ondragstart="return false;" onselectstart="return false;">
-
   <!-- HEADER -->
   <header class="header">
     <img class="header_img" src="assets/logo.jpg" alt="Logo ARA">
-    <nav class="nav">
+
+    <!-- Botão hambúrguer -->
+    <div class="hamburger" id="hamburger">☰</div>
+
+    <nav class="nav" id="nav">
       <a href="#sobre" class="iten_nav">Sobre</a>
       <a href="#servicos" class="iten_nav">Serviços</a>
       <a href="#portfolio" class="iten_nav">Portfólio</a>
@@ -89,6 +91,15 @@
       </div>
     </section>
 
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+      <span class="close">&times;</span>
+      <div class="lightbox-content-wrapper">
+        <img class="lightbox-content" id="lightbox-img">
+        <div class="lightbox-watermark">ARA Fotografia</div>
+      </div>
+    </div>
+
     <!-- CONTATOS -->
     <section class="contatos" id="contatos">
       <h3 class="main_secundaria_titulo" data-aos="fade-up">Fale Conosco</h3>
@@ -96,7 +107,7 @@
         Entre em contato pelo WhatsApp ou siga nosso Instagram para conhecer mais:
       </p>
       <div class="contatos_links">
-        <a href="https://wa.me/5588996859525" target="_blank" class="main_button" data-aos="zoom-in">
+        <a href="https://wa.me/5500000000000" target="_blank" class="main_button" data-aos="zoom-in">
           WhatsApp
         </a>
         <a href="https://www.instagram.com/_ara.team?igsh=eXd1ZTdiNGJhOG12" target="_blank" class="main_button" data-aos="zoom-in" data-aos-delay="200">
@@ -117,6 +128,55 @@
     AOS.init({
       duration: 1000,
       once: true
+    });
+
+    // Menu hambúrguer
+    const hamburger = document.getElementById("hamburger");
+    const nav = document.getElementById("nav");
+    hamburger.addEventListener("click", () => {
+      nav.classList.toggle("active");
+      hamburger.classList.toggle("active");
+    });
+
+    // Scroll suave (forçado em todos navegadores)
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener("click", function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute("href"));
+        if (target) {
+          const headerOffset = 60;
+          const elementPosition = target.offsetTop;
+          const offsetPosition = elementPosition - headerOffset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth"
+          });
+          nav.classList.remove("active"); // Fecha menu mobile
+        }
+      });
+    });
+
+    // Lightbox
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const closeBtn = document.querySelector(".close");
+
+    document.querySelectorAll(".portfolio_item img").forEach(img => {
+      img.addEventListener("click", () => {
+        lightbox.style.display = "flex";
+        lightboxImg.src = img.src;
+      });
+    });
+
+    closeBtn.addEventListener("click", () => {
+      lightbox.style.display = "none";
+    });
+
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) {
+        lightbox.style.display = "none";
+      }
     });
   </script>
 </body>

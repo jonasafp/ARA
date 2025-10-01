@@ -14,24 +14,18 @@ body {
   font-family: "Inter", sans-serif;
   color: #fff;
   line-height: 1.6;
-}
-
-/* Compensa o header fixo */
-.main {
-  border-top: 0.4px solid #1ebefd;
-  padding-top: 100px;
+  transition: all 0.3s ease-in-out;
 }
 
 /* ==========================
    HEADER
 ========================== */
 .header {
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
-  width: 100%;
   z-index: 100;
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
   padding: 16px 48px;
@@ -43,9 +37,11 @@ body {
   height: 60px;
 }
 
+/* NAV */
 .nav {
   display: flex;
   gap: 32px;
+  transition: all 0.3s ease;
 }
 
 .iten_nav {
@@ -71,16 +67,29 @@ body {
   width: 100%;
 }
 
+/* Botão hambúrguer */
+.hamburger {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #fff;
+}
+
 /* ==========================
    HERO SECTION
 ========================== */
+.main {
+  border-top: 0.4px solid #1ebefd;
+}
+
 .main_principal {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  margin: 64px auto;
+  min-height: 100vh;
   max-width: 1200px;
+  margin: 0 auto;
   padding: 0 20px;
   gap: 32px;
 }
@@ -225,10 +234,72 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) rotate(-20deg);
-  font-size: 26px;
+  font-size: 28px;
   font-weight: bold;
-  color: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.15);
   pointer-events: none;
+}
+
+/* ==========================
+   LIGHTBOX
+========================== */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  padding: 40px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox-content-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox-content {
+  position: fixed;
+  max-width: 80%;
+  max-height: 80%;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+  pointer-events: none;
+}
+
+/* Marca d’água no Lightbox */
+.lightbox-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-20deg);
+  font-size: 42px;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.30);
+  user-select: none;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.lightbox .close {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  color: #fff;
+  font-size: 40px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.lightbox .close:hover {
+  color: #00aef3;
 }
 
 /* ==========================
@@ -277,7 +348,27 @@ body {
     height: 300px;
   }
 
+  /* Menu mobile */
+  .hamburger {
+    display: block;
+  }
+
   .nav {
-    gap: 16px;
+    display: none;
+    flex-direction: column;
+    background: rgba(0, 10, 19, 0.95);
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    padding: 20px;
+    border-radius: 12px;
+  }
+
+  .nav.active {
+    display: flex;
+  }
+
+  .nav a {
+    padding: 10px 0;
   }
 }
