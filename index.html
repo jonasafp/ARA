@@ -13,8 +13,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Righteous&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Righteous&display=swap"
     rel="stylesheet">
 
   <!-- AOS (Animate on Scroll) -->
@@ -40,14 +39,37 @@
   <!-- MAIN -->
   <main class="main">
     <!-- HERO -->
-    <section class="main_principal" id="sobre">
-      <div class="main_principal_escrito" data-aos="fade-right">
-        <h1 class="main_principal_titulo">ARA</h1>
-        <h2 class="main_principal_subtitulo">Fotografia Automotiva</h2>
-        <a href="#contatos"><button class="main_button">Orçamentos</button></a>
+    <section id="hero" class="hero">
+      <div class="hero-content">
+        <h1 class="hero-title">ARA</h1>
+        <h2 class="hero-subtitle">Fotografia Automotiva</h2>
+        <p class="hero-text">Transformamos carros em verdadeiras obras de arte visuais.</p>
+
+        <div class="hero-buttons">
+          <a href="#portfolio" class="btn primary">Ver Portfólio</a>
+          <a href="#contatos" class="btn secondary">Solicitar Orçamento</a>
+        </div>
       </div>
-      <img class="main_img" src="assets/figure_main.png" alt="Fotógrafo ilustrado" data-aos="fade-left">
+
+      <div class="hero-image">
+        <div class="fotografo-composite" data-aos="fade-left">
+          <div class="bg-fotografo">
+            <!-- imagem de fundo circular (cidade) -->
+            <img src="assets/bg-fotografo.png" alt="Fundo circular" class="fotografo-circle">
+          </div>
+          <div class="fotografo">
+            <!-- imagem do fotógrafo (PNG com fundo transparente) sobreposta -->
+            <img src="assets/fotografo.png" alt="Fotógrafo" class="fotografo-foreground">
+          </div> 
+        </div>
+      </div>
+
+      <!-- Indicador de rolagem -->
+      <div class="scroll-down">
+        <span></span>
+      </div>
     </section>
+
 
     <!-- SERVIÇOS -->
     <section class="main_secundaria" id="servicos">
@@ -107,10 +129,11 @@
         Entre em contato pelo WhatsApp ou siga nosso Instagram para conhecer mais:
       </p>
       <div class="contatos_links">
-        <a href="https://wa.me/5500000000000" target="_blank" class="main_button" data-aos="zoom-in">
+        <a href="https://wa.me/5588996859525" target="_blank" class="main_button" data-aos="zoom-in">
           WhatsApp
         </a>
-        <a href="https://www.instagram.com/_ara.team?igsh=eXd1ZTdiNGJhOG12" target="_blank" class="main_button" data-aos="zoom-in" data-aos-delay="200">
+        <a href="https://www.instagram.com/_ara.team?igsh=eXd1ZTdiNGJhOG12" target="_blank" class="main_button"
+          data-aos="zoom-in" data-aos-delay="200">
           Instagram
         </a>
       </div>

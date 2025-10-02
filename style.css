@@ -78,63 +78,150 @@ body {
 /* ==========================
    HERO SECTION
 ========================== */
-.main {
-  border-top: 0.4px solid #1ebefd;
-}
-
-.main_principal {
+.hero {
+  height: 100vh;
   display: flex;
-  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
-  justify-content: space-around;
-  min-height: 100vh;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  gap: 32px;
-}
-
-.main_principal_escrito {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.main_principal_titulo {
-  font-family: "Righteous", sans-serif;
-  font-size: clamp(40px, 6vw, 72px);
+  padding: 0 10%;
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)),
+              url("assets/bg-automotivo.png") center/cover no-repeat;
   color: #fff;
+  position: relative;
 }
 
-.main_principal_subtitulo {
+.hero-content {
+  max-width: 600px;
+  animation: fadeInLeft 1s ease forwards;
+}
+
+.hero-title {
+  font-size: 4rem;
+  font-weight: 800;
+  margin-bottom: 0.3em;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
   font-weight: 400;
-  font-size: 22px;
-  color: #cce6f9;
+  margin-bottom: 1em;
+  color: #00aaff;
 }
 
-.main_img {
-  height: 430px;
-  max-width: 100%;
+.hero-text {
+  font-size: 1.2rem;
+  margin-bottom: 2em;
+  line-height: 1.5;
 }
 
-/* BOTÃO PRINCIPAL */
-.main_button {
-  background: linear-gradient(135deg, #00aef3, #006494);
-  padding: 14px 28px;
-  border: none;
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.btn {
+  padding: 12px 25px;
   border-radius: 30px;
-  font-weight: 600;
-  font-size: 18px;
-  color: #fff;
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: inline-block;
-  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
 }
 
-.main_button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(0, 174, 243, 0.4);
+.btn.primary {
+  background: linear-gradient(135deg, #00aaff, #0077ff);
+  color: #fff;
+}
+
+.btn.primary:hover {
+  box-shadow: 0 4px 15px rgba(0,170,255,0.6);
+}
+
+.btn.secondary {
+  background: transparent;
+  border: 2px solid #00aaff;
+  color: #00aaff;
+}
+
+.btn.secondary:hover {
+  background: #00aaff;
+  color: #fff;
+}
+
+.container-fotografo {
+  position: relative;
+  display: inline-block;
+  width: 380px;
+  height: 380px;
+  overflow: hidden; /* corta o que passar pra fora */
+}
+
+.bg-fotografo img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 5px solid #00aaff;
+  box-shadow: 0 0 20px rgba(0,170,255,0.5);
+  animation: fadeInRight 1s ease forwards;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.fotografo img {
+  position: absolute;
+  bottom: 0;
+  top: 50%;    
+  left: 50%;      /* começa do meio */
+  transform: translate(-78%, -54%); /* desloca mais pra direita */
+  width: 70%;    /* aumenta um pouco pra dar o efeito de “canto” */
+}
+
+/* Scroll Down Indicator */
+.scroll-down {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.scroll-down span {
+  display: block;
+  width: 25px;
+  height: 40px;
+  border: 2px solid #fff;
+  border-radius: 50px;
+  position: relative;
+}
+
+.scroll-down span::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  background: #fff;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  animation: scrollAnim 1.5s infinite;
+}
+
+/* Animations */
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scrollAnim {
+  0% { opacity: 0; transform: translate(-50%, 0); }
+  50% { opacity: 1; transform: translate(-50%, 10px); }
+  100% { opacity: 0; transform: translate(-50%, 20px); }
 }
 
 /* ==========================
@@ -324,6 +411,8 @@ body {
   flex-wrap: wrap;
 }
 
+
+
 /* ==========================
    FOOTER
 ========================== */
@@ -371,4 +460,92 @@ body {
   .nav a {
     padding: 10px 0;
   }
+}
+
+/* ==========================
+   HERO — FOTÓGRAFO
+========================== */
+.fotografo-composite {
+  position: relative;
+  width: 360px;           /* tamanho base em desktop */
+  max-width: 42vw;        /* responsivo - se ajusta à largura da tela */
+  aspect-ratio: 1 / 1;    /* garante proporção quadrada (círculo perfeito) */
+  margin: 0 auto;
+  display: block;
+}
+
+/* Círculo de fundo (cidade) */
+.fotografo-circle {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  position: relative;
+  z-index: 2; /* fica acima do neon (neon ficará por trás desse elemento via pseudo-element) */
+}
+
+/* Neon ring aplicado via pseudo-element do container para ficar "envoltório" do círculo */
+.fotografo-composite::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100% + 18px);   /* um pouco maior que o círculo para formar a borda neon */
+  height: calc(100% + 18px);
+  border-radius: 50%;
+  z-index: 1;                  /* atrás do circle image */
+  pointer-events: none;
+}
+
+/* Fotógrafo foreground (PNG com fundo transparente):
+   dimensione em relação ao círculo (ajuste width% se precisar) */
+.fotografo-foreground {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -54%); /* leve ajuste vertical para ficar visualmente centralizado */
+  width: 62%;                        /* largura do fotógrafo em relação ao círculo */
+  height: auto;
+  z-index: 3;                        /* sempre acima do círculo e do neon */
+  pointer-events: none;              /* evita cliques por cima */
+  user-select: none;
+}
+
+/* Pequenas adaptações para telas menores */
+@media (max-width: 900px) {
+  .fotografo-composite { width: 300px; max-width: 46vw; }
+  .fotografo-foreground { width: 66%; transform: translate(-50%, -52%); }
+  .fotografo-composite::after { width: calc(100% + 14px); height: calc(100% + 14px); }
+}
+
+@media (max-width: 480px) {
+  .fotografo-composite { width: 220px; max-width: 70vw; }
+  .fotografo-foreground { width: 70%; transform: translate(-50%, -50%); }
+  .fotografo-composite::after { width: calc(100% + 10px); height: calc(100% + 10px); }
+}
+
+/* ==========================
+   BOTÕES DE CONTATO CORRIGIDOS
+========================== */
+.main_button,
+a.main_button {
+  background: linear-gradient(135deg, #00aaff, #0077ff);
+  padding: 12px 25px;
+  border: none;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 1rem;
+  color: #fff !important;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: inline-block;
+  text-align: center;
+}
+
+.main_button:hover,
+a.main_button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 170, 255, 0.4);
 }
