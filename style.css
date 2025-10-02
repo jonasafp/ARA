@@ -425,44 +425,6 @@ body {
 }
 
 /* ==========================
-   RESPONSIVIDADE
-========================== */
-@media (max-width: 768px) {
-  .main_principal {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .main_img {
-    height: 300px;
-  }
-
-  /* Menu mobile */
-  .hamburger {
-    display: block;
-  }
-
-  .nav {
-    display: none;
-    flex-direction: column;
-    background: rgba(0, 10, 19, 0.95);
-    position: absolute;
-    top: 70px;
-    right: 20px;
-    padding: 20px;
-    border-radius: 12px;
-  }
-
-  .nav.active {
-    display: flex;
-  }
-
-  .nav a {
-    padding: 10px 0;
-  }
-}
-
-/* ==========================
    HERO — FOTÓGRAFO
 ========================== */
 .fotografo-composite {
@@ -549,3 +511,42 @@ a.main_button:hover {
   transform: scale(1.05);
   box-shadow: 0 8px 20px rgba(0, 170, 255, 0.4);
 }
+
+/* ==========================
+   RESPONSIVIDADE
+========================== */
+@media (max-width: 768px) {
+  .main_principal {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .main_img {
+    height: 300px;
+  }
+
+  /* Menu mobile */
+  .hamburger {
+    display: block;
+  }
+
+  .nav {
+    display: none;
+    flex-direction: column;
+    background: rgba(0, 10, 19, 0.95);
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    padding: 20px;
+    border-radius: 12px;
+  }
+
+  .nav.active {
+    display: flex;
+  }
+
+  .nav a {
+    padding: 10px 0;
+  }
+}
+
