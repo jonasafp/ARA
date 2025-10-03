@@ -541,28 +541,6 @@ body {
   transform: scale(1.05);
 }
 
-/* manter aparência dos botões de contato igual ao botão do hero 
-.main_button,
-a.main_button {
-  background: linear-gradient(135deg, #00aaff, #0077ff);
-  padding: 12px 25px;
-  border: none;
-  border-radius: 30px;
-  font-weight: bold;
-  font-size: 1rem;
-  color: #fff !important;
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: inline-block;
-  text-align: center;
-}
-
-.main_button:hover,
-a.main_button:hover {
-  transform: scale(1.10);
-  box-shadow: 0 8px 20px rgba(0, 170, 255, 0.4);
-}*/
-
 /* ==========================
    FOOTER
    ========================== */
